@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageDevGroup. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <!-- Extend admin-sso's section with the Google-specific OIDC settings.
+             Client id/secret are shared and live in admin-sso's general group. -->
+        <section id="magedevgroup_admin_sso">
+            <group id="google" translate="label comment" type="text" sortOrder="20"
+                   showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Google Workspace</label>
+                <comment>Shown only when Google is the selected identity provider.</comment>
+                <depends>
+                    <field id="magedevgroup_admin_sso/general/enabled">1</field>
+                    <field id="magedevgroup_admin_sso/general/active_provider">google</field>
+                </depends>
+                <field id="allowed_domain" translate="label comment" type="text" sortOrder="10"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Allowed Workspace Domain</label>
+                    <comment><![CDATA[Restrict sign-in to a Google Workspace domain via the
+                        <code>hd</code> claim, e.g. <code>example.com</code>. Personal Google
+                        accounts (no <code>hd</code>) are rejected. Leave empty to allow any
+                        Google account.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
