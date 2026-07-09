@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageDevGroup. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Open/closed seam: register the Google preset into admin-sso's registry. -->
+    <type name="MageDevGroup\AdminSso\Model\PresetRegistry">
+        <arguments>
+            <argument name="presets" xsi:type="array">
+                <item name="google" xsi:type="object">MageDevGroup\AdminSsoGoogle\Model\GooglePreset</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Enforce the optional Workspace-domain (`hd`) restriction on Google logins,
+         without touching the provider-agnostic core. -->
+    <type name="MageDevGroup\SsoCore\Model\Oidc\IdentityFactory">
+        <plugin name="magedevgroup_admin_sso_google_enforce_hosted_domain"
+                type="MageDevGroup\AdminSsoGoogle\Plugin\EnforceHostedDomain"/>
+    </type>
+</config>
