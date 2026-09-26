@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  *
  * Standalone unit-test bootstrap: loads Magento's Composer autoloader (for the
  * framework classes), registers PSR-4 maps for this module and its sibling
@@ -34,9 +34,9 @@ if (!$autoloaderLoaded) {
 }
 
 $psr4 = [
-    'MageDevGroup\\AdminSsoGoogle\\' => $moduleRoot,
-    'MageDevGroup\\AdminSso\\' => $moduleRoot . '/../module-admin-sso',
-    'MageDevGroup\\SsoCore\\' => $moduleRoot . '/../module-sso-core',
+    'DmLab\\AdminSsoGoogle\\' => $moduleRoot,
+    'DmLab\\AdminSso\\' => $moduleRoot . '/../module-admin-sso',
+    'DmLab\\SsoCore\\' => $moduleRoot . '/../module-sso-core',
 ];
 
 spl_autoload_register(static function (string $class) use ($psr4): void {

@@ -1,4 +1,4 @@
-# MageDevGroup_AdminSsoGoogle
+# DmLab_AdminSsoGoogle
 
 > Google Workspace login for the Magento 2 admin panel.
 
@@ -9,8 +9,8 @@ A thin Google provider plugin for the provider-agnostic `admin-sso` capability. 
 ## Installation
 
 ```bash
-composer require magedevgroup/module-admin-sso-google
-bin/magento module:enable MageDevGroup_SsoCore MageDevGroup_AdminSso MageDevGroup_AdminSsoGoogle
+composer require dmlab/module-admin-sso-google
+bin/magento module:enable DmLab_SsoCore DmLab_AdminSso DmLab_AdminSsoGoogle
 bin/magento setup:upgrade
 ```
 
@@ -30,9 +30,9 @@ OIDC discovery document (`https://accounts.google.com/.well-known/openid-configu
 
 ## Configuration
 
-Admin → Stores → Configuration → **MageDevGroup → Admin SSO**.
+Admin → Stores → Configuration → **DMLab → Admin SSO**.
 
-**General** (`magedevgroup_admin_sso/general/*`):
+**General** (`dmlab_admin_sso/general/*`):
 
 | Field | Value |
 |---|---|
@@ -41,7 +41,7 @@ Admin → Stores → Configuration → **MageDevGroup → Admin SSO**.
 | Client ID | from the Google OAuth client |
 | Client Secret | from the Google OAuth client |
 
-**Google Workspace** (`magedevgroup_admin_sso/google/*`, shown when Google is selected):
+**Google Workspace** (`dmlab_admin_sso/google/*`, shown when Google is selected):
 
 | Field | Value |
 |---|---|
@@ -69,7 +69,7 @@ account with domain-wide delegation) — out of scope for v1.
 - Magento **2.4.x**
 - PHP **8.3 – 8.5**
 
-## Part of the MageDevGroup identity suite
+## Part of the DMLab identity suite
 
 | Repo | Role |
 |------|------|
@@ -80,4 +80,4 @@ account with domain-wide delegation) — out of scope for v1.
 
 ## License
 
-[OSL-3.0](LICENSE) © MageDevGroup. Commercial licensing and support: <https://magedevgroup.com>.
+[OSL-3.0](LICENSE) © DMLab. Commercial licensing and support: <https://dmlab.work>.

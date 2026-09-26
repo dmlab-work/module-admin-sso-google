@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminSsoGoogle\Plugin;
+namespace DmLab\AdminSsoGoogle\Plugin;
 
-use MageDevGroup\AdminSsoGoogle\Model\Config;
-use MageDevGroup\AdminSsoGoogle\Model\GooglePreset;
-use MageDevGroup\SsoCore\Api\ProviderPresetInterface;
-use MageDevGroup\SsoCore\Model\Oidc\IdentityFactory;
+use DmLab\AdminSsoGoogle\Model\Config;
+use DmLab\AdminSsoGoogle\Model\GooglePreset;
+use DmLab\SsoCore\Api\ProviderPresetInterface;
+use DmLab\SsoCore\Model\Oidc\IdentityFactory;
 use Magento\Framework\Exception\LocalizedException;
 
 /**

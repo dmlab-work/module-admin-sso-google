@@ -1,12 +1,12 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminSsoGoogle\Test\Unit;
+namespace DmLab\AdminSsoGoogle\Test\Unit;
 
-use MageDevGroup\AdminSsoGoogle\Model\Config;
+use DmLab\AdminSsoGoogle\Model\Config;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -31,7 +31,7 @@ class SystemConfigTest extends TestCase
     public function testGoogleGroupLivesUnderAdminSsoSection(): void
     {
         $groups = $this->xpath->query(
-            "/config/system/section[@id='magedevgroup_admin_sso']/group[@id='google']"
+            "/config/system/section[@id='dmlab_admin_sso']/group[@id='google']"
         );
 
         self::assertNotNull($groups);
@@ -41,7 +41,7 @@ class SystemConfigTest extends TestCase
     public function testAllowedDomainFieldMapsToConfigPath(): void
     {
         $fields = $this->xpath->query(
-            "/config/system/section[@id='magedevgroup_admin_sso']"
+            "/config/system/section[@id='dmlab_admin_sso']"
             . "/group[@id='google']/field[@id='allowed_domain']"
         );
 
@@ -73,7 +73,7 @@ class SystemConfigTest extends TestCase
     public function testGoogleGroupDependsAreFullyQualified(): void
     {
         $ids = $this->xpath->query(
-            "/config/system/section[@id='magedevgroup_admin_sso']"
+            "/config/system/section[@id='dmlab_admin_sso']"
             . "/group[@id='google']/depends/field/@id"
         );
 
@@ -82,8 +82,8 @@ class SystemConfigTest extends TestCase
             $paths[] = $attr->value;
         }
 
-        self::assertContains('magedevgroup_admin_sso/general/enabled', $paths);
-        self::assertContains('magedevgroup_admin_sso/general/active_provider', $paths);
+        self::assertContains('dmlab_admin_sso/general/enabled', $paths);
+        self::assertContains('dmlab_admin_sso/general/active_provider', $paths);
         foreach ($paths as $path) {
             self::assertSame(3, count(explode('/', $path)), "Depend '$path' is not fully qualified.");
         }

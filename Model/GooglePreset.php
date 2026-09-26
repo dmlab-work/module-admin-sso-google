@@ -1,12 +1,12 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminSsoGoogle\Model;
+namespace DmLab\AdminSsoGoogle\Model;
 
-use MageDevGroup\SsoCore\Api\ProviderPresetInterface;
+use DmLab\SsoCore\Api\ProviderPresetInterface;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 
 /**
@@ -41,7 +41,7 @@ class GooglePreset implements ProviderPresetInterface
     private const BUTTON_LABEL = 'Sign in with Google';
 
     /** Module-relative asset id of the login-button logo. */
-    private const ICON_ASSET = 'MageDevGroup_AdminSsoGoogle::images/google.svg';
+    private const ICON_ASSET = 'DmLab_AdminSsoGoogle::images/google.svg';
 
     /**
      * @param AssetRepository $assetRepository
