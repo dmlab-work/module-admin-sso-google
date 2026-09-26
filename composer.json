@@ -1,13 +1,13 @@
 {
-    "name": "magedevgroup/module-admin-sso-google",
+    "name": "dmlab/module-admin-sso-google",
     "description": "Google Workspace provider plugin for Magento 2 admin SSO — supplies the Google OIDC preset (fixed discovery URL, scopes, hosted-domain restriction, branding) for the provider-agnostic admin-sso capability. Installs admin-sso (and sso-core) automatically.",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "require": {
         "php": "~8.3.0||~8.4.0||~8.5.0",
         "magento/framework": ">=103.0",
-        "magedevgroup/module-admin-sso": "*"
+        "dmlab/module-admin-sso": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^12.0"
@@ -17,7 +17,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "MageDevGroup\\AdminSsoGoogle\\": ""
+            "DmLab\\AdminSsoGoogle\\": ""
         }
     }
 }

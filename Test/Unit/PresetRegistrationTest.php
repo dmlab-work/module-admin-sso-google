@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminSsoGoogle\Test\Unit;
+namespace DmLab\AdminSsoGoogle\Test\Unit;
 
-use MageDevGroup\AdminSso\Model\PresetRegistry;
-use MageDevGroup\AdminSsoGoogle\Model\GooglePreset;
+use DmLab\AdminSso\Model\PresetRegistry;
+use DmLab\AdminSsoGoogle\Model\GooglePreset;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 class PresetRegistrationTest extends TestCase
 {
-    private const REGISTRY = 'MageDevGroup\\AdminSso\\Model\\PresetRegistry';
+    private const REGISTRY = 'DmLab\\AdminSso\\Model\\PresetRegistry';
 
     public function testDiXmlRegistersGooglePresetIntoPresetRegistry(): void
     {

@@ -1,16 +1,16 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminSsoGoogle\Test\Unit\Plugin;
+namespace DmLab\AdminSsoGoogle\Test\Unit\Plugin;
 
-use MageDevGroup\AdminSsoGoogle\Model\Config;
-use MageDevGroup\AdminSsoGoogle\Model\GooglePreset;
-use MageDevGroup\AdminSsoGoogle\Plugin\EnforceHostedDomain;
-use MageDevGroup\SsoCore\Api\ProviderPresetInterface;
-use MageDevGroup\SsoCore\Model\Oidc\IdentityFactory;
+use DmLab\AdminSsoGoogle\Model\Config;
+use DmLab\AdminSsoGoogle\Model\GooglePreset;
+use DmLab\AdminSsoGoogle\Plugin\EnforceHostedDomain;
+use DmLab\SsoCore\Api\ProviderPresetInterface;
+use DmLab\SsoCore\Model\Oidc\IdentityFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 use PHPUnit\Framework\TestCase;
@@ -134,7 +134,7 @@ class EnforceHostedDomainTest extends TestCase
         $dom = new \DOMDocument();
         self::assertTrue($dom->load($diXml));
 
-        $plugin = $this->findPluginOnType($dom, 'MageDevGroup\\SsoCore\\Model\\Oidc\\IdentityFactory');
+        $plugin = $this->findPluginOnType($dom, 'DmLab\\SsoCore\\Model\\Oidc\\IdentityFactory');
 
         self::assertNotNull($plugin, 'EnforceHostedDomain is not registered as a plugin on IdentityFactory.');
         self::assertSame(EnforceHostedDomain::class, ltrim(trim($plugin->getAttribute('type')), '\\'));

@@ -1,10 +1,10 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminSsoGoogle\Test\Unit;
+namespace DmLab\AdminSsoGoogle\Test\Unit;
 
 use Magento\Framework\Component\ComponentRegistrar;
 use PHPUnit\Framework\TestCase;
@@ -15,13 +15,13 @@ class RegistrationTest extends TestCase
     {
         $paths = (new ComponentRegistrar())->getPaths(ComponentRegistrar::MODULE);
 
-        self::assertArrayHasKey('MageDevGroup_AdminSsoGoogle', $paths);
+        self::assertArrayHasKey('DmLab_AdminSsoGoogle', $paths);
     }
 
     public function testRegisteredPathPointsAtThisModule(): void
     {
         $paths = (new ComponentRegistrar())->getPaths(ComponentRegistrar::MODULE);
-        $path = $paths['MageDevGroup_AdminSsoGoogle'] ?? null;
+        $path = $paths['DmLab_AdminSsoGoogle'] ?? null;
 
         self::assertNotNull($path);
         self::assertDirectoryExists($path);
@@ -31,7 +31,7 @@ class RegistrationTest extends TestCase
     public function testModuleSequencesAfterAdminSso(): void
     {
         $paths = (new ComponentRegistrar())->getPaths(ComponentRegistrar::MODULE);
-        $moduleXml = ($paths['MageDevGroup_AdminSsoGoogle'] ?? '') . '/etc/module.xml';
+        $moduleXml = ($paths['DmLab_AdminSsoGoogle'] ?? '') . '/etc/module.xml';
 
         $dom = new \DOMDocument();
         self::assertTrue($dom->load($moduleXml));
@@ -43,6 +43,6 @@ class RegistrationTest extends TestCase
             }
         }
 
-        self::assertContains('MageDevGroup_AdminSso', $sequenced);
+        self::assertContains('DmLab_AdminSso', $sequenced);
     }
 }

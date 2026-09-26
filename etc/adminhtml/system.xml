@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,14 +9,14 @@
     <system>
         <!-- Extend admin-sso's section with the Google-specific OIDC settings.
              Client id/secret are shared and live in admin-sso's general group. -->
-        <section id="magedevgroup_admin_sso">
+        <section id="dmlab_admin_sso">
             <group id="google" translate="label comment" type="text" sortOrder="20"
                    showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Google Workspace</label>
                 <comment>Shown only when Google is the selected identity provider.</comment>
                 <depends>
-                    <field id="magedevgroup_admin_sso/general/enabled">1</field>
-                    <field id="magedevgroup_admin_sso/general/active_provider">google</field>
+                    <field id="dmlab_admin_sso/general/enabled">1</field>
+                    <field id="dmlab_admin_sso/general/active_provider">google</field>
                 </depends>
                 <field id="allowed_domain" translate="label comment" type="text" sortOrder="10"
                        showInDefault="1" showInWebsite="0" showInStore="0">

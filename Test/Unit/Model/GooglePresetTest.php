@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminSsoGoogle\Test\Unit\Model;
+namespace DmLab\AdminSsoGoogle\Test\Unit\Model;
 
-use MageDevGroup\AdminSsoGoogle\Model\GooglePreset;
-use MageDevGroup\SsoCore\Api\ProviderPresetInterface;
+use DmLab\AdminSsoGoogle\Model\GooglePreset;
+use DmLab\SsoCore\Api\ProviderPresetInterface;
 use Magento\Framework\View\Asset\Repository as AssetRepository;
 use PHPUnit\Framework\TestCase;
 
@@ -75,7 +75,7 @@ class GooglePresetTest extends TestCase
     public function testButtonIconResolvesShippedGoogleLogo(): void
     {
         self::assertSame(
-            'https://magento.loc/static/MageDevGroup_AdminSsoGoogle::images/google.svg',
+            'https://magento.loc/static/DmLab_AdminSsoGoogle::images/google.svg',
             $this->preset->getButtonIconUrl()
         );
     }
