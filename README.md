@@ -73,7 +73,7 @@ account with domain-wide delegation) — out of scope for v1.
 
 ## Requirements
 
-- Magento **2.4.x**
+- Magento **2.4.x** (tested on 2.4.9)
 - PHP **8.3 – 8.5**
 
 ## Part of the DMLab identity suite
