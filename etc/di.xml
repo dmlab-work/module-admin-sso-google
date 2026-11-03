@@ -20,5 +20,15 @@
     <type name="DmLab\SsoCore\Model\Oidc\IdentityFactory">
         <plugin name="dmlab_admin_sso_google_enforce_hosted_domain"
                 type="DmLab\AdminSsoGoogle\Plugin\EnforceHostedDomain"/>
+        <!-- Optional: add Workspace groups from the Directory API for the group to role map. -->
+        <plugin name="dmlab_admin_sso_google_directory_groups"
+                type="DmLab\AdminSsoGoogle\Plugin\AddDirectoryGroups"/>
+    </type>
+    <type name="Magento\Config\Model\Config\TypePool">
+        <arguments>
+            <argument name="sensitive" xsi:type="array">
+                <item name="dmlab_admin_sso/google/service_account_key" xsi:type="string">1</item>
+            </argument>
+        </arguments>
     </type>
 </config>

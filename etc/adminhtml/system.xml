@@ -26,6 +26,32 @@
                     <backend_model>DmLab\AdminSsoGoogle\Model\Config\Backend\AllowedDomain</backend_model>
                     <validate>required-entry</validate>
                 </field>
+                <field id="directory_groups_enabled" translate="label comment" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Map Google Groups to Roles</label>
+                    <comment>Reads the user's Workspace groups from the Directory API at sign-in; the group emails are matched by the Group to Role Map (enter them lowercase). Off: every Google admin gets the default role.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="service_account_key" translate="label comment" type="obscure" sortOrder="30"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Service Account Key (JSON)</label>
+                    <comment>Paste the whole JSON key file. Stored encrypted.</comment>
+                    <backend_model>DmLab\AdminSsoGoogle\Model\Config\Backend\ServiceAccountKey</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="directory_groups_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="directory_admin_subject" translate="label comment" type="text" sortOrder="40"
+                       showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Admin to Impersonate</label>
+                    <comment>Workspace user with the Groups Reader admin role; the service account acts as this user.</comment>
+                    <backend_model>DmLab\AdminSsoGoogle\Model\Config\Backend\AdminSubject</backend_model>
+                    <validate>required-entry validate-email</validate>
+                    <depends>
+                        <field id="directory_groups_enabled">1</field>
+                    </depends>
+                </field>
             </group>
         </section>
     </system>

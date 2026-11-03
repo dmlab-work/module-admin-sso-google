@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+- Added optional Google Workspace group → role mapping via the Directory API: service account with domain-wide
+  delegation (`admin.directory.group.readonly`), key stored encrypted, off by default. A failed lookup refuses
+  the login (fails closed).
+- `web-token/jwt-framework` declared as a direct dependency.
+- Accepts `dmlab/module-sso-core` and `dmlab/module-admin-sso` 0.3.
+
 ## 0.2.1
 
 - Requires Magento 2.4.7+ and PHP 8.2–8.5: `magento/framework` `^103.0.7`, `magento/module-config` `^101.2.7`.

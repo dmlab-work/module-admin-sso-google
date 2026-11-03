@@ -24,8 +24,9 @@ class PackagingTest extends TestCase
                 'php' => '~8.2.0||~8.3.0||~8.4.0||~8.5.0',
                 'magento/framework' => '^103.0.7',
                 'magento/module-config' => '^101.2.7',
-                'dmlab/module-sso-core' => '^0.2.0',
-                'dmlab/module-admin-sso' => '^0.2.0',
+                'dmlab/module-sso-core' => '^0.2.0||^0.3.0',
+                'dmlab/module-admin-sso' => '^0.2.0||^0.3.0',
+                'web-token/jwt-framework' => '^3.4.10||~4.0.7||^4.1.7',
             ],
             $this->composer()['require']
         );
@@ -53,6 +54,7 @@ class PackagingTest extends TestCase
 
         self::assertContains('magento2', $keywords);
         self::assertContains('google workspace', $keywords);
+        self::assertContains('google groups', $keywords);
     }
 
     public function testCiTestsPhp82To85(): void
@@ -97,7 +99,7 @@ class PackagingTest extends TestCase
             static fn (string $heading): int|false => strpos($readme, "\n" . $heading . "\n"),
             [
                 '## Install', '## Requirements', '## Create the Google OAuth client', '## Configuration',
-                '## What it does', '## Architecture', '## License',
+                '## Map Google groups to admin roles (optional)', '## What it does', '## Architecture', '## License',
             ]
         );
 
@@ -107,18 +109,23 @@ class PackagingTest extends TestCase
         self::assertSame($sorted, $positions);
     }
 
-    public function testReadmeDoesNotMentionDirectoryApi(): void
+    public function testReadmeDocumentsGroupMappingDelegationScope(): void
     {
-        self::assertStringNotContainsString('Directory API', $this->readme());
+        $section = (string)strstr($this->readme(), "\n## Map Google groups to admin roles (optional)\n");
+        $section = (string)strstr($section, "\n## What it does\n", true);
+
+        self::assertNotSame('', $section);
+        self::assertStringContainsString('https://www.googleapis.com/auth/admin.directory.group.readonly', $section);
+        self::assertStringContainsString('engineering@example.com=3', $section);
     }
 
-    public function testVersionIs021AndLeadsChangelog(): void
+    public function testVersionIs030AndLeadsChangelog(): void
     {
-        self::assertSame('0.2.1', $this->composer()['version'] ?? null);
+        self::assertSame('0.3.0', $this->composer()['version'] ?? null);
 
         $changelog = (string)file_get_contents($this->root() . '/CHANGELOG.md');
         self::assertSame(1, preg_match('/^## (\S+)/m', $changelog, $match));
-        self::assertSame('0.2.1', $match[1]);
+        self::assertSame('0.3.0', $match[1]);
     }
 
     public function testEveryPhpPhraseIsInEnUsCsv(): void

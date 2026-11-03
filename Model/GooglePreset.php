@@ -21,9 +21,9 @@ use Magento\Framework\View\Asset\Repository as AssetRepository;
  * `admin-sso`'s PresetRegistry (the open/closed seam).
  *
  * Google does not emit Workspace group memberships in the OIDC ID token, so the
- * groups claim is null — group → role mapping cannot resolve from a Google login
- * (see the module README). The practical Google control is who may sign in,
- * restricted via the `hd` hosted-domain claim (see Plugin/EnforceHostedDomain).
+ * groups claim is null; groups are optionally read from the Directory API by
+ * Plugin/AddDirectoryGroups. Who may sign in is restricted via the `hd`
+ * hosted-domain claim (see Plugin/EnforceHostedDomain).
  */
 class GooglePreset implements ProviderPresetInterface, AuthorizationParamsProviderInterface
 {

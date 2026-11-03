@@ -58,7 +58,7 @@ class RegistrationTest extends TestCase
         );
 
         self::assertMatchesRegularExpression('/^\d+\.\d+\.\d+$/', $composer['version'] ?? '');
-        self::assertSame('^0.2.0', $composer['require']['dmlab/module-sso-core'] ?? null);
+        self::assertSame('^0.2.0||^0.3.0', $composer['require']['dmlab/module-sso-core'] ?? null);
         self::assertArrayHasKey('magento/module-config', $composer['require']);
     }
 
